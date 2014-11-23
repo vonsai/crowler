@@ -3,9 +3,10 @@ var config = require('./config'),
 	db = require('./db')
 
 var Category = db.model('Category')
+
 var setup = function() {
 
-	console.log('vonsai crowler: ' + (process.env.NODE_ENV || 'development'))
+	console.log('vonsai crowler: ' + config.env)
 
 	//Setup categories
 	var categories = require('./data/categories')
@@ -13,7 +14,7 @@ var setup = function() {
 		
 		//Check what categories are already in the db
 		Category.findOne({name:cat.name}, function(err, c) {
-			
+
 			if (err || !c) {
 				callback(true)
 			} else {
@@ -24,7 +25,7 @@ var setup = function() {
 	}, function(categoriesToAdd) {
 		_.eachSeries(categoriesToAdd, function(cat, cb){
 
-			var dbcat = new Category({name: cat.name, feedURL: cat.feedURL});
+			var dbcat = new Category({name: cat.name, feedURL: cat.feedURL, lastBuilt: 0});
 			dbcat.save(cb)
 
 		}, function (err) {
