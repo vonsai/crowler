@@ -1,0 +1,30 @@
+[
+	{
+		"name": "España", 
+		"feedURL": "http://www.elmundo.es/rss/long/espana.xml"
+	},
+	{
+		"name": "Internacional", 
+		"feedURL": "http://www.elmundo.es/rss/long/internacional.xml"
+	},
+	{
+		"name": "Deportes", 
+		"feedURL": "http://www.elmundo.es/rss/long/deportes.xml"
+	},
+	{
+		"name": "Economía", 
+		"feedURL": "http://www.elmundo.es/rss/long/economia.xml"
+	},
+	{
+		"name": "Tecnologia", 
+		"feedURL": "http://www.elmundo.es/rss/long/tecnologia.xml"
+	},
+	{
+		"name": "Ciencia", 
+		"feedURL": "http://www.elmundo.es/rss/long/ciencia.xml"
+	},
+	{
+		"name": "Cultura", 
+		"feedURL": "http://www.elmundo.es/rss/long/cultura.xml"
+	}
+]
