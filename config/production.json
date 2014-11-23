@@ -1,4 +1,5 @@
 {
-	"db": "mongodb://localhost/vonsai",
+	"env": "production",
+	"db": "mongodb://jorge:ola@ds051740.mongolab.com:51740/vonsai",
 	"crowlInterval": 60
 }

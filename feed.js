@@ -24,11 +24,20 @@ var parseFeed = function(url, cb){
 		while (item = stream.read()){
 			var article = {}
 			article.title = item.title
+			article.subtitle = item['media:description']['#']
 			article.text = item.description
 			article.url = item.link
-			article.imageURL = item['image']['url']
-			article.timestamp = moment(item['rss:pubdate']['#'], 'ddd DD MMM YYYY HH:mm:ss ZZ').unix()
 
+			var media = item['media:content']
+			if (media) {
+
+				article.imageURL = media['@']['url']
+			} else {
+
+				article.imageURL = item['image']['url']
+			}
+			article.timestamp = moment(item['rss:pubdate']['#'], 'ddd DD MMM YYYY HH:mm:ss ZZ').unix()
+			
 			category.articles.push(article)
 		}
 	})

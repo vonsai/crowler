@@ -32,6 +32,7 @@ var setup = function() {
 var run = function() {
 	console.log('Starting crowler');
 
+	var number = 0
 	Category.find({}, function (err, cats) {
 
 		handleError(err)
@@ -59,22 +60,25 @@ var run = function() {
 							_.each(articlesToAdd, function (art, cbbb){
 
 								var dbarticle = new Article(art)
-								dbarticle.category = cat.id
+								dbarticle.category = cat._id
 
 								dbarticle.save(cbbb)
+								number += 1
 							}, cb)
 						})
 					} else {
 						cb()
 					}
 				})
-			}, handleError)
+			}, function() {
+				console.log('Added '+ number+ ' articles')
+
+				var interval = config.crowlInterval
+				console.log('Scheduling crowler for '+ interval)
+				setTimeout(run, interval * 1000);
+			})
 		}
 	})
-
-	var interval = config.crowlInterval
-	console.log('Scheduling crowler for '+ interval)
-	setTimeout(run, interval * 1000);
 }
 
 var handleError = function (err) {

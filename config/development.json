@@ -1,4 +1,5 @@
-{
+{	
+	"env": "development",
 	"db": "mongodb://localhost/vonsai",
 	"crowlInterval": 10
 }
