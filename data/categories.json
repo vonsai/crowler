@@ -26,5 +26,13 @@
 	{
 		"name": "Cultura", 
 		"feedURL": "http://www.elmundo.es/rss/long/cultura.xml"
+	},
+	{
+		"name": "Motor", 
+		"feedURL": "http://www.elmundo.es/rss/long/motor.xml"
+	},
+	{
+		"name": "Opinion", 
+		"feedURL": "http://www.elmundo.es/rss/long/opinion.xml"
 	}
 ]

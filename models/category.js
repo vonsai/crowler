@@ -7,7 +7,7 @@ var Category = new Schema({
     id: ObjectId,
    	name: String,
     feedURL: String,
-    lastBuilt: Number
+    lastBuilt: {type: Number, default: 0}
 });
 
 module.exports = exports = Category;
