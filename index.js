@@ -64,7 +64,11 @@ var run = function() {
 
 								dbarticle.save(cbbb)
 								number += 1
-							}, cb)
+							}, function (err) {
+
+								handleError(err)
+								cat.save(cb)
+							})
 						})
 					} else {
 						cb()
