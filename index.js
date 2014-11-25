@@ -23,7 +23,23 @@ var setup = function() {
 	}, function(categoriesToAdd) {
 		_.each(categoriesToAdd, function(cat, cb){
 
-			new Category(cat).save(cb);
+			//Add category to db
+			var dbcat = new Category(cat)
+			_.series([
+
+				function(cbb) {
+					//Save category in db
+					dbcat.save(cbb)
+				},
+				function(cbb) {
+					//TODO: Add category to users [Issue: https://github.com/vonsai/crowler/issues/1]
+					cbb(null, null)
+				}], function (results){
+					cb()
+				}
+			)
+			
+			dbcat.save(cb);
 			
 		}, handleError)
 	})
